@@ -1,6 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import Rendering from './tasks/Rendering';
 import Attributes from './tasks/Attributes';
+import OnCss from './tasks/OnCss';
+import Condition from './tasks/Condition';
+import Cycles from './tasks/Cycles';
+import Methods from './tasks/Methods';
+
 
 class App extends Component {
   render() {
@@ -8,6 +13,10 @@ class App extends Component {
         <Fragment>
         <Rendering />
         <Attributes />
+        <OnCss />
+        <Condition />
+        <Cycles />
+        <Methods />
         </Fragment>
     );
   }
