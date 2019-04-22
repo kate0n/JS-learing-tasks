@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-// import './App.css';
 
 const text1 = <p>текст1</p>;
 const text2 = <p>текст2</p>;
+
 class Rendering extends Component {
     render() {
         return (
