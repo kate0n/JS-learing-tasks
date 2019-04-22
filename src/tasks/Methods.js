@@ -6,20 +6,18 @@ class Methods extends Component {
         return <p> текст </p>;
     }
 
-    getNum2 = () => {
-        return <p> 2 </p>;
-    }
-
     getNum1 = () => {
-        return getNum2();
+        return 1;
     }
-
+    getNum2 = () => {
+        return 2;
+    }
 
     render() {
         return (
-            <Fragment>
-                {this.getNum1()}
-            </Fragment>
+            <div>
+                {this.getNum1() + this.getNum2()}
+            </div>
         );
     }
 }
