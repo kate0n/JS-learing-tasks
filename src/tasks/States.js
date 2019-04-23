@@ -50,8 +50,6 @@ class States extends Component {
             {name: 'Ирина', age: 40},
             {name: 'Ибрагим', age: 28},
         ],
-        name: "Иван",
-        age: 25,
         count: 0
     }
 
@@ -64,10 +62,11 @@ class States extends Component {
     }
 
     next = () => {
-        if (this.state.count < 5){
+        if (this.state.count < this.state.users.length -1 ){
         this.setState( {count: this.state.count + 1} );
+        console.log(this.state.count);
         } else {
-            this.setState( {count: 0 } );
+            this.setState( {count: this.state.users.length - 1} );
         }
     }
 
