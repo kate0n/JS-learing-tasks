@@ -1,29 +1,18 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 
-class CyclesV3 extends Component {
+class CyclesV3_1 extends Component {
     state = {
         names: ['Коля', 'Вася', 'Петя', 'Иван', 'Дима']
     };
-
-    addElement = () => {
-        const list = document.getElementById("list");
-        const elem = document.createElement("li");
-        elem.innerHTML = "Пункт";
-        list.appendChild(elem);
-    }
-
     render() {
         const names = this.state.names.map(name =>( <li> {name} </li>));
 
         return (
-            <Fragment>
-            <ul id={"list"}>
+            <ul>
                 {names}
             </ul>
-            <button onClick={this.addElement}> Добавить пункт </button>
-            </Fragment>
         )
     }
 }
 
-export default CyclesV3;
+export default CyclesV3_1;
