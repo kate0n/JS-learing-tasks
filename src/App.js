@@ -5,6 +5,8 @@ import OnCss from './tasks/OnCss';
 import Condition from './tasks/Condition';
 import Cycles from './tasks/Cycles';
 import Methods from './tasks/Methods';
+import States from './tasks/States';
+
 
 
 class App extends Component {
@@ -17,6 +19,7 @@ class App extends Component {
         <Condition />
         <Cycles />
         <Methods />
+        <States />
         </Fragment>
     );
   }
