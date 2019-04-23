@@ -8,10 +8,14 @@ class CyclesV2 extends Component {
             {href: '3.html', text: 'ссылка 3'},
         ]
     };
+
     render() {
+
+        const hrefs = this.state.hrefs.map(item => (<li><a href={item.href}>  {item.text}  </a></li>));
+
         return (
             <ul>
-                {this.state.hrefs.map(item => <li><a href={item.href}>  {item.text}  </a></li>)}
+                {hrefs}
             </ul>
         )
     }
