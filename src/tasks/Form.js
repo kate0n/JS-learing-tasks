@@ -15,7 +15,7 @@ class Form extends Component {
         let checkGender = () => {
             const genderGroup = document.form.gender;
             let genderChecked = "не выбран";
-            for (let i=0; i< genderGroup.length; i++) {
+            for (let i = 0; i < genderGroup.length; i++) {
                 if (genderGroup[i].checked) {
                     genderChecked = genderGroup[i].value;
                     return genderChecked;
@@ -81,8 +81,8 @@ class Form extends Component {
                     </thead>
                 </table>
                 <div id={"buttons"}>
-                <button id={"edit"}> Редактировать</button>
-                <button id={"del"} onClick={this.deleteUser}> Удалить</button>
+                    <button id={"edit"}> Редактировать</button>
+                    <button id={"del"} onClick={this.deleteUser}> Удалить</button>
                 </div>
             </Fragment>
         );

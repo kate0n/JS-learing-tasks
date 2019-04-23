@@ -7,6 +7,9 @@ import Condition from './tasks/Condition';
 import Methods from './tasks/Methods';
 import States from './tasks/States';
 import Form from './tasks/Form';
+import CyclesV1 from './tasks/CyclesV1';
+import CyclesV2 from './tasks/CyclesV2';
+
 
 
 class App extends Component {
@@ -21,6 +24,8 @@ class App extends Component {
         <Methods />
         <States />
         <Form />
+        <CyclesV1 />
+        <CyclesV2 />
         </Fragment>
     );
   }
