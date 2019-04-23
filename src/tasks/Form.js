@@ -10,21 +10,40 @@ class Form extends Component {
         row.insertCell().innerHTML = document.getElementById('name').value;
         row.insertCell().innerHTML = document.getElementById('surname').value;
         row.insertCell().innerHTML = document.getElementById('age').value;
-        row.insertCell().innerHTML = document.getElementById('gender').value;
-        row.insertCell().innerHTML = '<button id={"edit"} onClick={this.delUser()}> Редактировать</button> <button id={"edit"}> Удалить </button>';
+
+        // проверка наличия свойства checked у радиобатонов
+        let checkGender = () => {
+            const genderGroup = document.form.gender;
+            let genderChecked = "не выбран";
+            for (let i=0; i< genderGroup.length; i++) {
+                if (genderGroup[i].checked) {
+                    genderChecked = genderGroup[i].value;
+                    return genderChecked;
+                    break;
+                }
+            }
+        }
+
+        row.insertCell().innerHTML = checkGender();
+
+        let delUser = (event) => {
+            let row = event.target.parentNode.parentNode.rowIndex;
+            document.getElementById('table').deleteRow(row);
+        }
+
+        row.insertCell().innerHTML = '<button> Редактировать</button> <button onClick={delUser}> Удалить </button>';
     }
 
-    delUser = (e) => {
-        let cell = e.target.parentNode;
-        e.target.remove();
-        // const row = btn.parentNode.parentNode;
-        // row.parentNode.removeChild(row);
+    deleteUser = (event) => {
+        let row = event.target.parentNode.parentNode.rowIndex;
+        document.getElementById('table').deleteRow(row);
+
     }
 
     render() {
         return (
             <Fragment>
-                <form>
+                <form name={"form"}>
                     <input
                         type={"text"}
                         placeholder={"Имя"}
@@ -37,25 +56,19 @@ class Form extends Component {
                         type={"text"}
                         placeholder={"Возраст"}
                         id={"age"}/>
-                    <input
-                        type={"text"}
-                        placeholder={"gender"}
-                        id={"gender"}/>
-                    {/*<input*/}
-                    {/*    type={"radio"}*/}
-                    {/*    id={"man"}*/}
-                    {/*    name={"Гендер"}*/}
-                    {/*    value={"Мужской"}*/}
-                    {/*    id={"gender"}/>*/}
-                    {/*<label for={"man"}> Мужской </label>*/}
 
-                    {/*<input*/}
-                    {/*    type={"radio"}*/}
-                    {/*    id={"women"}*/}
-                    {/*    name={"Гендер"}*/}
-                    {/*    value={"Женский"}*/}
-                    {/*    id={"gender"}/>*/}
-                    {/*<label for={"women"}> Женский </label>*/}
+                    <input
+                        type={"radio"}
+                        name={"gender"}
+                        value={"Мужской"}
+                        id={"man"}/>
+                    <label htmlFor={"man"}> Мужской </label>
+                    <input
+                        type={"radio"}
+                        name={"gender"}
+                        value={"Женский"}
+                        id={"women"}/>
+                    <label htmlFor={"women"}> Женский </label>
 
                     <button type={"submit"} onClick={this.addRow}> Сохранить</button>
                     <button type={"reset"}> Сброс</button>
@@ -63,6 +76,7 @@ class Form extends Component {
 
                 <table id="table" border={"1px"}>
                     <caption>Список пользователей</caption>
+                    <thead>
                     <tr>
                         <th>Имя</th>
                         <th>Фамилия</th>
@@ -70,10 +84,11 @@ class Form extends Component {
                         <th>Гендер</th>
                         <th>Кнопки</th>
                     </tr>
+                    </thead>
                 </table>
                 <div id={"buttons"}>
                 <button id={"edit"}> Редактировать</button>
-                <button id={"del"}> Удалить</button>
+                <button id={"del"} onClick={this.deleteUser}> Удалить</button>
                 </div>
             </Fragment>
         );

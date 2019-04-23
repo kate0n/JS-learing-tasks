@@ -18,7 +18,7 @@ class Attributes extends Component {
                     текст
                 </div>
 
-                <label for={forInput}>
+                <label htmlFor={forInput}>
                     текст
                 </label>
 

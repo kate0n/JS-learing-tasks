@@ -3,7 +3,7 @@ import Rendering from './tasks/Rendering';
 import Attributes from './tasks/Attributes';
 import OnCss from './tasks/OnCss';
 import Condition from './tasks/Condition';
-import Cycles from './tasks/Cycles';
+// import Cycles from './tasks/Cycles';
 import Methods from './tasks/Methods';
 import States from './tasks/States';
 import Form from './tasks/Form';
@@ -17,7 +17,7 @@ class App extends Component {
         <Attributes />
         <OnCss />
         <Condition />
-        <Cycles />
+        {/*<Cycles />*/}
         <Methods />
         <States />
         <Form />
