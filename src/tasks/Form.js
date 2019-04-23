@@ -25,13 +25,7 @@ class Form extends Component {
         }
 
         row.insertCell().innerHTML = checkGender();
-
-        let delUser = (event) => {
-            let row = event.target.parentNode.parentNode.rowIndex;
-            document.getElementById('table').deleteRow(row);
-        }
-
-        row.insertCell().innerHTML = '<button> Редактировать</button> <button onClick={delUser}> Удалить </button>';
+        row.insertCell().innerHTML = '<button> Редактировать</button> <button onClick={this.delUser}> Удалить </button>';
     }
 
     deleteUser = (event) => {
