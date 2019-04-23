@@ -9,7 +9,7 @@ import States from './tasks/States';
 import Form from './tasks/Form';
 import CyclesV1 from './tasks/CyclesV1';
 import CyclesV2 from './tasks/CyclesV2';
-
+import CyclesV3 from './tasks/CyclesV3';
 
 
 class App extends Component {
@@ -26,6 +26,7 @@ class App extends Component {
         <Form />
         <CyclesV1 />
         <CyclesV2 />
+        <CyclesV3 />
         </Fragment>
     );
   }

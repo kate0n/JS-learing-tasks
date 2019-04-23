@@ -8,9 +8,6 @@ class CyclesV2 extends Component {
             {href: '3.html', text: 'ссылка 3'},
         ]
     };
-    // хотела сделать тут, но была ошибка unexpected erorr, не осознала пока почему так нельзя
-    // const hrefList = this.state.hrefs.map( item => <li> <a href={item.href}>  {item.text}  </a> </li> )
-
     render() {
         return (
             <ul>
