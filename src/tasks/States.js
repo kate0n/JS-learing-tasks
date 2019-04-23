@@ -1,5 +1,10 @@
 import React, {Component, Fragment} from 'react';
 
+
+// просто вывод name/age из стейта
+// метод showMessage c алертом
+// метод showName с name юзера из стейта
+// метод changeUser для смены юзера
 class States1 extends Component {
     state = {
         name: 'Иван',
@@ -33,6 +38,8 @@ class States1 extends Component {
     }
 }
 
+// переключение состояний
+
 class States extends Component {
     state = {
         users: [
@@ -44,31 +51,33 @@ class States extends Component {
             {name: 'Ибрагим', age: 28},
         ],
         name: "Иван",
-        age: 25
+        age: 25,
+        count: 0
     }
 
     prev = () => {
-        let i = 0;
-        i++;
-        this.setState( {name: this.state.users[i].name} );
-        this.setState({age: this.state.users[i].age} );
-        i++;
+        if (this.state.count > 0) {
+            this.setState( {count: this.state.count - 1} );
+        } else {
+            this.setState( {count: 0 } );
+        }
     }
 
     next = () => {
-        let i = 0;
-        i--;
-        this.setState( {name: this.state.users[i].name} );
-        this.setState({age: this.state.users[i].age} );
-        i++;
+        if (this.state.count < 5){
+        this.setState( {count: this.state.count + 1} );
+        } else {
+            this.setState( {count: 0 } );
+        }
     }
 
     render() {
+        let count = this.state.count;
         return (
             <div>
-                имя: {this.state.name}, возраст: {this.state.age}
+                имя: {this.state.users[count].name}, возраст: {this.state.users[count].age}
                 <button onClick={this.prev}> Предыдущий </button>
-                <button> Следующий</button>
+                <button onClick={this.next}> Следующий</button>
             </div>
         )
     }
