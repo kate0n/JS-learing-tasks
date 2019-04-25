@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 
 class CyclesV3_4 extends Component {
     state = {
@@ -22,11 +22,9 @@ class CyclesV3_4 extends Component {
             </li>));
 
         return (
-            <Fragment>
                 <ul id={"list3"}>
                     {names}
                 </ul>
-            </Fragment>
         )
     }
 }
