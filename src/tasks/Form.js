@@ -34,6 +34,20 @@ class Form extends Component {
 
     }
 
+    editUser = (event) => {
+        const table = document.getElementById('table');
+        let row = event.target.parentNode.parentNode.rowIndex;
+        const name = document.getElementById('name').value;
+        const surname = document.getElementById('surname').value;
+        const age = document.getElementById('age').value;
+        // const gender = document.form.gender;
+        name.innerHTML = row.cellIndex(0);
+        surname.innerHTML = row.cellIndex(1);
+        age.innerHTML = row.cellIndex(2);
+
+    }
+
+
     render() {
         return (
             <Fragment>

@@ -6,11 +6,9 @@ class CyclesV3_2 extends Component {
     };
 
     deleteElement = () => {
-        const list = document.getElementById("list2");
-        const elem = list.lastChild;
-        if (elem !== null) {
-            list.removeChild(elem)
-        }
+        this.setState(prevState => ({
+            deletedUser: prevState.names.pop()
+        }))
     }
 
     render() {

@@ -1,21 +1,21 @@
 import React, {Component, Fragment} from 'react';
 
-class CyclesV3_2 extends Component {
+class CyclesV3_4 extends Component {
     state = {
         names: ['Коля', 'Вася', 'Петя', 'Иван', 'Дима']
     };
 
-    deleteElement = (event) => {
-        const list = document.getElementById("list3");
-        let currentLi = event.target.parentNode;
-        list.removeChild(currentLi)
+    deleteElement = del => {
+        this.setState(prevState => ({
+             names: prevState.names.filter(name => name !== del )
+        }))
     }
 
     render() {
         const names = this.state.names.map(name => (
             <li>
                 {name}
-                <button onClick={this.deleteElement}> Удалить пункт</button>
+                <button onClick= {() => {this.deleteElement(name)} }> Удалить пункт </button>
             </li>));
 
         return (
@@ -28,4 +28,4 @@ class CyclesV3_2 extends Component {
     }
 }
 
-export default CyclesV3_2;
+export default CyclesV3_4;

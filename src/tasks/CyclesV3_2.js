@@ -2,14 +2,14 @@ import React, {Component, Fragment} from 'react';
 
 class CyclesV3_2 extends Component {
     state = {
-        names: ['Коля', 'Вася', 'Петя', 'Иван', 'Дима']
+        names: ['Коля', 'Вася', 'Петя', 'Иван', 'Дима'],
+        clicked: false
     };
 
     addElement = () => {
-        const list = document.getElementById("list");
-        const elem = document.createElement("li");
-        elem.innerHTML = "Пункт";
-        list.appendChild(elem);
+       this.setState({
+           clicked: true
+       })
     }
 
     render() {
@@ -19,6 +19,7 @@ class CyclesV3_2 extends Component {
             <Fragment>
                 <ul id={"list"}>
                     {names}
+                    {this.state.clicked ? <li> Пункт </li> : null}
                 </ul>
                 <button onClick={this.addElement}> Добавить пункт </button>
             </Fragment>
