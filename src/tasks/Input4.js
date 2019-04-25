@@ -1,27 +1,34 @@
-import React, {Fragment} from 'react';
+import React, {Component, Fragment} from 'react';
 
-const addText = () => {
-    let surname = document.getElementById('surname');
-    let firstname = document.getElementById('firstname');
-    let middlename = document.getElementById('middlename');
-    let textValue = document.getElementById('input4').value;
+class Input4 extends Component {
+    state = {
+        surname: "",
+        firstname: "",
+        middlename: ""
+    }
 
-    let arr = textValue.split(" ");
-    console.log(arr);
+    separateText = () => {
+        let textValue = document.getElementById("input4").value;
+        let arr = textValue.split(" ");
+        this.setState({
+            surname: arr[0],
+            firstname: arr[1],
+            middlename: arr[2]
+        });
+    }
 
-    surname.innerHTML = arr[0];
-    firstname.innerHTML = arr[1];
-    middlename.innerHTML = arr[2];
+    render() {
+        return (
+            <Fragment>
+                <input id={"input4"}
+                       onKeyUp={this.separateText}
+                       placeholder={"ФИО"}/>
+                <p> {this.state.surname} </p>
+                <p> {this.state.firstname} </p>
+                <p> {this.state.middlename} </p>
+            </Fragment>
+        )
+    }
 };
 
-const Inputs = () => (
-    <Fragment>
-
-        <input id={"input4"} type={"text"} onKeyUp={addText}/>
-        <p id={"surname"}></p>
-        <p id={"firstname"}></p>
-        <p id={"middlename"}></p>
-    </Fragment>
-);
-
-export default Inputs;
+export default Input4;

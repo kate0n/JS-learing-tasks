@@ -1,17 +1,26 @@
-import React, {Fragment} from 'react';
+import React, {Component, Fragment} from 'react';
 
-const addText = () => {
-    let paragraph = document.getElementById('text2');
-    let textValue = document.getElementById('input2').value;
-    paragraph.innerHTML = textValue.toUpperCase();
-};
+class Input2 extends Component {
+    state = {
+        text: ""
+    }
 
-const Inputs = () => (
-    <Fragment>
+    addUpperCaseText = () => {
+        let textValue = document.getElementById('input2').value.toUpperCase();
+        this.setState({ text: textValue } )
+    }
 
-        <input id={"input2"} type={"text"} onKeyUp={addText}/>
-        <p id={"text2"}></p>
-    </Fragment>
-);
+    render() {
+        return (
+            <Fragment>
+                <input
+                    id={"input2"}
+                    onKeyUp={this.addUpperCaseText}
+                    placeholder={"to upper case"}/>
+                <p> {this.state.text} </p>
+            </Fragment>
+        )
+    }
+}
 
-export default Inputs;
+export default Input2;

@@ -1,17 +1,27 @@
-import React, {Fragment} from 'react';
+import React, {Component, Fragment} from 'react';
 
-const addText = () => {
-    let paragraph = document.getElementById('text3');
-    let textValue = document.getElementById('input3').value;
-    paragraph.innerHTML = 2019 - textValue;
-};
+class Input3 extends Component {
+    state = {
+        year: ""
+    }
 
-const Inputs = () => (
-    <Fragment>
+    calculateBirthYear = () => {
+        let age = document.getElementById("input3").value;
+        this.setState({year: 2019 - age})
+    }
 
-        <input id={"input3"} type={"text"} onKeyUp={addText}/>
-        <p id={"text3"}></p>
-    </Fragment>
-);
+    render() {
+        return (
+            <Fragment>
+                <input
+                    id={"input3"}
+                    placeholder={"birth yaer"}
+                    onKeyUp={this.calculateBirthYear}
+                />
+                <p> {this.state.year} </p>
+            </Fragment>
+        )
+    }
+}
 
-export default Inputs;
+export default Input3;

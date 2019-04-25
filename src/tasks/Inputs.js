@@ -1,17 +1,26 @@
-import React, {Fragment} from 'react';
+import React, {Component, Fragment} from 'react';
 
-const addText = () => {
-    let paragraph = document.getElementById('text');
-    let textValue = document.getElementById('input').value;
-    paragraph.innerHTML = textValue;
+class Inputs extends Component {
+    state = {
+        text: ""
+    }
+
+    addText = () => {
+        let textValue = document.getElementById('input').value;
+        this.setState({text: textValue})
+    };
+
+    render() {
+        return (
+            <Fragment>
+                <input
+                    id={"input"}
+                    onKeyUp={this.addText}
+                    placeholder={"dynamic appear of text"}/>
+                <p> {this.state.text} </p>
+            </Fragment>
+        )
+    }
 };
-
-const Inputs = () => (
-    <Fragment>
-
-        <input id={"input"} type={"text"} onKeyUp={addText}/>
-        <p id={"text"}></p>
-    </Fragment>
-);
 
 export default Inputs;
