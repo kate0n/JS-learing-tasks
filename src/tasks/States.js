@@ -55,18 +55,18 @@ class States extends Component {
 
     prev = () => {
         if (this.state.count > 0) {
-            this.setState( {count: this.state.count - 1} );
+            this.setState({count: this.state.count - 1});
         } else {
-            this.setState( {count: 0 } );
+            this.setState({count: this.state.users.length - 1});
         }
     }
 
     next = () => {
-        if (this.state.count < this.state.users.length -1 ){
-        this.setState( {count: this.state.count + 1} );
-        console.log(this.state.count);
+        if (this.state.count < this.state.users.length - 1) {
+            this.setState({count: this.state.count + 1});
+            console.log(this.state.count);
         } else {
-            this.setState( {count: this.state.users.length - 1} );
+            this.setState({count: 0});
         }
     }
 
@@ -75,7 +75,7 @@ class States extends Component {
         return (
             <div>
                 имя: {this.state.users[count].name}, возраст: {this.state.users[count].age}
-                <button onClick={this.prev}> Предыдущий </button>
+                <button onClick={this.prev}> Предыдущий</button>
                 <button onClick={this.next}> Следующий</button>
             </div>
         )

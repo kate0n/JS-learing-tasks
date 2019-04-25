@@ -7,13 +7,13 @@ class CyclesV3_2 extends Component {
     };
 
     addElement = () => {
-       this.setState({
-           clicked: true
-       })
+        this.setState({
+            clicked: true
+        })
     }
 
     render() {
-        const names = this.state.names.map(name =>( <li> {name} </li>));
+        const names = this.state.names.map(name => (<li> {name} </li>));
 
         return (
             <Fragment>
@@ -21,7 +21,7 @@ class CyclesV3_2 extends Component {
                     {names}
                     {this.state.clicked ? <li> Пункт </li> : null}
                 </ul>
-                <button onClick={this.addElement}> Добавить пункт </button>
+                <button onClick={this.addElement}> Добавить пункт</button>
             </Fragment>
         )
     }

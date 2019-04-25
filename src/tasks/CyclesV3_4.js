@@ -7,7 +7,7 @@ class CyclesV3_4 extends Component {
 
     deleteElement = del => {
         this.setState(prevState => ({
-             names: prevState.names.filter(name => name !== del )
+            names: prevState.names.filter(name => name !== del)
         }))
     }
 
@@ -15,7 +15,10 @@ class CyclesV3_4 extends Component {
         const names = this.state.names.map(name => (
             <li>
                 {name}
-                <button onClick= {() => {this.deleteElement(name)} }> Удалить пункт </button>
+                <button onClick={() => {
+                    this.deleteElement(name)
+                }}> Удалить пункт
+                </button>
             </li>));
 
         return (
