@@ -5,8 +5,10 @@ class Inputs extends Component {
         text: ""
     }
 
+    getText = React.createRef();
+
     addText = () => {
-        let textValue = document.getElementById('input').value;
+        let textValue = this.getText.current.value;
         this.setState({text: textValue})
     };
 
@@ -14,7 +16,7 @@ class Inputs extends Component {
         return (
             <Fragment>
                 <input
-                    id={"input"}
+                    ref={this.getText}
                     onKeyUp={this.addText}
                     placeholder={"dynamic appear of text"}/>
                 <p> {this.state.text} </p>

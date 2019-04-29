@@ -17,6 +17,9 @@ import Inputs from "./tasks/Inputs";
 import Input2 from "./tasks/Input2";
 import Input3 from "./tasks/Input3";
 import Input4 from "./tasks/Input4";
+import UpdateArrById from "./tasks/BasicJs/UpdateArrById";
+import SubtractArrays from "./tasks/BasicJs/SubtractArrays";
+
 
 class App extends Component {
     render() {
@@ -40,6 +43,8 @@ class App extends Component {
                 <Input2/>
                 <Input3/>
                 <Input4/>
+                <UpdateArrById />
+                <SubtractArrays />
             </Fragment>
         );
     }

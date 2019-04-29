@@ -5,8 +5,10 @@ class Input3 extends Component {
         year: ""
     }
 
+    getText = React.createRef();
+
     calculateBirthYear = () => {
-        let age = document.getElementById("input3").value;
+        let age = this.getText.current.value;
         this.setState({year: 2019 - age})
     }
 
@@ -14,7 +16,7 @@ class Input3 extends Component {
         return (
             <Fragment>
                 <input
-                    id={"input3"}
+                    ref={this.getText}
                     placeholder={"birth yaer"}
                     onKeyUp={this.calculateBirthYear}
                 />

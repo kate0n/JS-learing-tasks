@@ -2,66 +2,39 @@ import React, {Component, Fragment} from 'react';
 
 
 class Form extends Component {
+    state = {
+        name: "",
+        surname: "",
+        age: "",
+        gender: "",
+        addRow: false
+    }
 
     addRow = (event) => {
         event.preventDefault();
-        const table = document.getElementById('table');
-        const row = table.insertRow();
-        row.insertCell().innerHTML = document.getElementById('name').value;
-        row.insertCell().innerHTML = document.getElementById('surname').value;
-        row.insertCell().innerHTML = document.getElementById('age').value;
+        this.setState({ addRow: true });
+        let nameValue = document.getElementById('name').value;
+        let surnameValue = document.getElementById('surname').value;
+        let ageValue = document.getElementById('age').value;
 
-        // проверка наличия свойства checked у радиобатонов
-        let checkGender = () => {
-            const genderGroup = document.form.gender;
-            let genderChecked = "не выбран";
-            for (let i = 0; i < genderGroup.length; i++) {
-                if (genderGroup[i].checked) {
-                    genderChecked = genderGroup[i].value;
-                    return genderChecked;
-                    break;
-                }
-            }
-        }
-
-        row.insertCell().innerHTML = checkGender();
-        row.insertCell().innerHTML = '<button> Редактировать</button> <button onClick={this.delUser}> Удалить </button>';
+        this.setState({
+            name: nameValue,
+            surname: surnameValue,
+            age: ageValue
+    })
     }
-
-    deleteUser = (event) => {
-        let row = event.target.parentNode.parentNode.rowIndex;
-        document.getElementById('table').deleteRow(row);
-
-    }
-
-    editUser = (event) => {
-        const table = document.getElementById('table');
-        let row = event.target.parentNode.parentNode.rowIndex;
-        const name = document.getElementById('name').value;
-        const surname = document.getElementById('surname').value;
-        const age = document.getElementById('age').value;
-        // const gender = document.form.gender;
-        name.innerHTML = row.cellIndex(0);
-        surname.innerHTML = row.cellIndex(1);
-        age.innerHTML = row.cellIndex(2);
-
-    }
-
 
     render() {
         return (
             <Fragment>
                 <form name={"form"}>
                     <input
-                        type={"text"}
                         placeholder={"Имя"}
                         id={"name"}/>
                     <input
-                        type={"text"}
                         placeholder={"Фамилия"}
                         id={"surname"}/>
                     <input
-                        type={"text"}
                         placeholder={"Возраст"}
                         id={"age"}/>
 
@@ -93,11 +66,19 @@ class Form extends Component {
                         <th>Кнопки</th>
                     </tr>
                     </thead>
+                    {this.state.addRow ?
+                        <tr>
+                        <th> {this.state.name} </th>
+                        <th> {this.state.surname} </th>
+                        <th> {this.state.age} </th>
+                        <th> {this.state.gender} </th>
+                        <th>
+                            <button id={"edit"}> Редактировать</button>
+                            <button id={"del"}> Удалить</button>
+                        </th>
+                        </tr>
+                        : null}
                 </table>
-                <div id={"buttons"}>
-                    <button id={"edit"}> Редактировать</button>
-                    <button id={"del"} onClick={this.deleteUser}> Удалить</button>
-                </div>
             </Fragment>
         );
     }

@@ -5,16 +5,18 @@ class Input2 extends Component {
         text: ""
     }
 
+    getText = React.createRef();
+
     addUpperCaseText = () => {
-        let textValue = document.getElementById('input2').value.toUpperCase();
-        this.setState({ text: textValue } )
+        let textValue = this.getText.current.value.toUpperCase();
+        this.setState({text: textValue})
     }
 
     render() {
         return (
             <Fragment>
                 <input
-                    id={"input2"}
+                    ref={this.getText}
                     onKeyUp={this.addUpperCaseText}
                     placeholder={"to upper case"}/>
                 <p> {this.state.text} </p>

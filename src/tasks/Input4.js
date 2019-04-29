@@ -7,8 +7,10 @@ class Input4 extends Component {
         middlename: ""
     }
 
+    getText = React.createRef();
+
     separateText = () => {
-        let textValue = document.getElementById("input4").value;
+        let textValue = this.getText.current.value;
         let arr = textValue.split(" ");
         this.setState({
             surname: arr[0],
@@ -20,9 +22,10 @@ class Input4 extends Component {
     render() {
         return (
             <Fragment>
-                <input id={"input4"}
-                       onKeyUp={this.separateText}
-                       placeholder={"ФИО"}/>
+                <input
+                    ref={this.getText}
+                    onKeyUp={this.separateText}
+                    placeholder={"ФИО"}/>
                 <p> {this.state.surname} </p>
                 <p> {this.state.firstname} </p>
                 <p> {this.state.middlename} </p>
