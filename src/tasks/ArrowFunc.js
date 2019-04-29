@@ -21,7 +21,7 @@ const chewToys = puppies.map( puppy => <li> {puppy} </li>)
 
 const myFunc = (name) => (
     <p> Hello {name} </p>
-
+);
 
 
 export const ArrowFunc = () => (
