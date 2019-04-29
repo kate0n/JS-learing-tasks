@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 
-
+import CyclesV3_4 from './tasks/CyclesV3_4';
+import CyclesV2 from './tasks/CyclesV2';
 import Form from './tasks/Form';
 import Inputs from "./tasks/Inputs";
 import Input2 from "./tasks/Input2";
@@ -14,6 +15,8 @@ import Filter from "./tasks/Arrays/Filter";
 import Find from "./tasks/Arrays/Find";
 import ArrowFunc from "./tasks/ArrowFunc";
 import OnSubmit from "./tasks/OnSubmit";
+import Table from "./tasks/Table";
+import Arr from "./tasks/Arr";
 
 
 class App extends Component {
@@ -35,6 +38,10 @@ class App extends Component {
 
                 <ArrowFunc/>
                 <OnSubmit/>
+                <CyclesV3_4/>
+                <CyclesV2/>
+                <Table/>
+                <Arr/>
             </Fragment>
         );
     }

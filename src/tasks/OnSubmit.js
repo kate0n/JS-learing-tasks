@@ -35,6 +35,7 @@ export class OnSubmit extends Component {
     render() {
         return (
             <div>
+                <p style={{fontSize: "28px"}}> НА SUMBIT </p>
                 {/*1 пункт*/}
                 <input
                     ref={this.getText}
