@@ -23,6 +23,7 @@ import ForEach from "./tasks/Arrays/ForEach";
 import Map from "./tasks/Arrays/Map";
 import Filter from "./tasks/Arrays/Filter";
 import Find from "./tasks/Arrays/Find";
+import ArrowFunc from "./tasks/ArrowFunc";
 
 
 class App extends Component {
@@ -54,6 +55,8 @@ class App extends Component {
                 <Map/>
                 <Filter/>
                 <Find/>
+
+                <ArrowFunc/>
             </Fragment>
         );
     }
