@@ -2,14 +2,11 @@ import React, {Component, Fragment} from 'react';
 
 class CyclesV3_2 extends Component {
     state = {
-        names: ['Коля', 'Вася', 'Петя', 'Иван', 'Дима'],
-        clicked: false
+        names: ['Коля', 'Вася', 'Петя', 'Иван', 'Дима']
     };
 
     addElement = () => {
-        this.setState({
-            clicked: true
-        })
+        this.setState({ names: [...this.state.names, 'пункт'] })
     }
 
     render() {
@@ -19,7 +16,6 @@ class CyclesV3_2 extends Component {
             <Fragment>
                 <ul id={"list"}>
                     {names}
-                    {this.state.clicked ? <li> Пункт </li> : null}
                 </ul>
                 <button onClick={this.addElement}> Добавить пункт</button>
             </Fragment>

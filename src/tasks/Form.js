@@ -3,48 +3,65 @@ import React, {Component, Fragment} from 'react';
 
 class Form extends Component {
     state = {
-        name: "",
-        surname: "",
-        age: "",
-        gender: "",
-        addRow: false
+        row: [{name: "f", surname: "f", age: "f", gender: ""}]
     }
+
+    getName = React.createRef();
+    getSurname = React.createRef();
+    getAge = React.createRef();
+    // getGender = React.CreateRef();
 
     addRow = (event) => {
         event.preventDefault();
-        this.setState({ addRow: true });
-        let nameValue = document.getElementById('name').value;
-        let surnameValue = document.getElementById('surname').value;
-        let ageValue = document.getElementById('age').value;
 
         this.setState({
-            name: nameValue,
-            surname: surnameValue,
-            age: ageValue
-    })
+            name: this.getName.current.value,
+            surname: this.getSurname.current.value,
+            age: this.getAge.current.value
+        })
     }
 
     render() {
+        const createRows = () => {
+            this.state.row.map((item) =>
+                <tr>
+                    <th> {item.name} </th>
+                    <th> {item.surname} </th>
+                    <th> {item.age} </th>
+                    <th> {item.gender} </th>
+                    <th>
+                        <button id={"edit"}> Редактировать</button>
+                        <button id={"del"}> Удалить</button>
+                    </th>
+                </tr>
+            )
+        }
+
         return (
             <Fragment>
                 <form name={"form"}>
                     <input
+                        ref={this.getName}
                         placeholder={"Имя"}
                         id={"name"}/>
                     <input
+                        ref={this.getSurname}
                         placeholder={"Фамилия"}
                         id={"surname"}/>
                     <input
+                        ref={this.getAge}
                         placeholder={"Возраст"}
                         id={"age"}/>
 
                     <input
+                        ref={this.getGender}
                         type={"radio"}
                         name={"gender"}
                         value={"Мужской"}
                         id={"man"}/>
                     <label htmlFor={"man"}> Мужской </label>
                     <input
+                        ref={this.getGender}
                         type={"radio"}
                         name={"gender"}
                         value={"Женский"}
@@ -66,18 +83,9 @@ class Form extends Component {
                         <th>Кнопки</th>
                     </tr>
                     </thead>
-                    {this.state.addRow ?
-                        <tr>
-                        <th> {this.state.name} </th>
-                        <th> {this.state.surname} </th>
-                        <th> {this.state.age} </th>
-                        <th> {this.state.gender} </th>
-                        <th>
-                            <button id={"edit"}> Редактировать</button>
-                            <button id={"del"}> Удалить</button>
-                        </th>
-                        </tr>
-                        : null}
+
+                    {createRows}
+
                 </table>
             </Fragment>
         );
