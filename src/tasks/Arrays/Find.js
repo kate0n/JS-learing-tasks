@@ -16,7 +16,7 @@ class Filter extends Component {
     // ф-я, возвращающая объект пользователя или пустой объект
     findUser = (arr, findName) => {
         let user = arr.find(user => user.name === findName)
-        if (user != undefined) {
+        if (user !== undefined) {
             return <p> {user.name} </p>
         } else {
             user = {}

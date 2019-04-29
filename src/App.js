@@ -17,6 +17,11 @@ import ArrowFunc from "./tasks/ArrowFunc";
 import OnSubmit from "./tasks/OnSubmit";
 import Table from "./tasks/Table";
 import Arr from "./tasks/Arr";
+import Textarea from "./tasks/Form&Inputs/Textarea";
+import Checkbox1 from "./tasks/Form&Inputs/Checkbox1";
+import Checkbox2 from "./tasks/Form&Inputs/Checkbox2";
+import Select from "./tasks/Form&Inputs/Select";
+import Radio from "./tasks/Form&Inputs/Radio";
 
 
 class App extends Component {
@@ -42,6 +47,12 @@ class App extends Component {
                 <CyclesV2/>
                 <Table/>
                 <Arr/>
+
+                <Textarea/>
+                <Checkbox1/>
+                <Checkbox2/>
+                <Select/>
+                <Radio/>
             </Fragment>
         );
     }
