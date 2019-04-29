@@ -6,14 +6,19 @@ class Map extends Component {
     }
 
     render() {
+
+        const mapped = this.state.names.map((name) => {
+            if (name[0] == "C") {
+                return <p style={{color: "red"}}> {name[0].toLowerCase() + name.slice(1)} </p>
+            } else {
+                return <p> {name} </p>
+            }
+        });
+
         return (
-            this.state.names.map((name) => {
-                if (name[0] == "C") {
-                    return <p style={{color: "red"}}> {name[0].toLowerCase() + name.slice(1)} </p>
-                } else {
-                    return <p> {name} </p>
-                }
-            })
+            <div>
+                {mapped}
+            </div>
         )
     }
 };
