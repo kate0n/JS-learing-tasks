@@ -38,31 +38,31 @@ export class OnSubmit extends Component {
                 {/*1 пункт*/}
                 <input
                     ref={this.getText}
-                    placeholder={"ввывод в абзац"} />
-                <button onClick={this.handleClick1}> Submit </button>
+                    placeholder={"ввывод в абзац"}/>
+                <button onClick={this.handleClick1}> Submit</button>
                 <p> {this.state.textValue} </p>
 
                 {/*2 пункт*/}
                 <input
                     ref={this.getNum1}
-                    placeholder={"1 число"} />
+                    placeholder={"1 число"}/>
                 <input
                     ref={this.getNum2}
-                    placeholder={"2 число"} />
-                <button onClick={this.handleSum}> Get sum </button>
+                    placeholder={"2 число"}/>
+                <button onClick={this.handleSum}> Get sum</button>
                 <p> {this.state.sum} </p>
 
                 {/*3 пункт*/}
                 <input
                     ref={this.lastname}
-                    placeholder={"фамилия"} />
+                    placeholder={"фамилия"}/>
                 <input
                     ref={this.name}
-                    placeholder={"имя"} />
+                    placeholder={"имя"}/>
                 <input
                     ref={this.surname}
-                    placeholder={"отчество"} />
-                <button onClick={this.handleFullName}> Submit </button>
+                    placeholder={"отчество"}/>
+                <button onClick={this.handleFullName}> Submit</button>
                 <p> {this.state.fullName} </p>
 
             </div>
