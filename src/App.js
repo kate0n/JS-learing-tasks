@@ -19,6 +19,10 @@ import Input3 from "./tasks/Input3";
 import Input4 from "./tasks/Input4";
 import UpdateArrById from "./tasks/BasicJs/UpdateArrById";
 import SubtractArrays from "./tasks/BasicJs/SubtractArrays";
+import ForEach from "./tasks/Arrays/ForEach";
+import Map from "./tasks/Arrays/Map";
+import Filter from "./tasks/Arrays/Filter";
+import Find from "./tasks/Arrays/Find";
 
 
 class App extends Component {
@@ -43,8 +47,13 @@ class App extends Component {
                 <Input2/>
                 <Input3/>
                 <Input4/>
-                <UpdateArrById />
-                <SubtractArrays />
+                <UpdateArrById/>
+                <SubtractArrays/>
+
+                <ForEach/>
+                <Map/>
+                <Filter/>
+                <Find/>
             </Fragment>
         );
     }

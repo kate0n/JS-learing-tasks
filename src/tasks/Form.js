@@ -3,7 +3,9 @@ import React, {Component, Fragment} from 'react';
 
 class Form extends Component {
     state = {
-        row: [{name: "f", surname: "f", age: "f", gender: ""}]
+        row: [
+            {name: "", surname: "", age: "", gender: ""}
+        ]
     }
 
     getName = React.createRef();
@@ -22,8 +24,7 @@ class Form extends Component {
     }
 
     render() {
-        const createRows = () => {
-            this.state.row.map((item) =>
+        const createRows =  this.state.row.map((item) =>
                 <tr>
                     <th> {item.name} </th>
                     <th> {item.surname} </th>
@@ -35,7 +36,7 @@ class Form extends Component {
                     </th>
                 </tr>
             )
-        }
+
 
         return (
             <Fragment>
@@ -88,8 +89,7 @@ class Form extends Component {
 
                 </table>
             </Fragment>
-        );
+        ); }
     }
-}
 
 export default Form;
