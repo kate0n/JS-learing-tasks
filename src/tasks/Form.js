@@ -35,7 +35,6 @@ class Form extends Component {
     };
 
     editRow = (item) => {
-        console.log(item);
         this.getName.current.value = item.name;
         this.getSurname.current.value = item.surname;
         this.getAge.current.value = item.age;
@@ -44,6 +43,7 @@ class Form extends Component {
         } else if (item.gender == "Мужской") {
             this.manRadio.current.checked = true;
         }
+        return item;
     };
 
     render() {
