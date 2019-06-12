@@ -16,13 +16,10 @@ class Textarea extends Component {
 
         return (
             <div>
-
                 <textarea
                     ref={this.getTextarea}
-                    onKeyUp={this.addText}/>
-
+                    onKeyUp={this.addText} />
                 <p> {this.state.text} </p>
-
             </div>
         )
     }

@@ -21,7 +21,14 @@ import Textarea from "./tasks/Form&Inputs/Textarea";
 import Checkbox1 from "./tasks/Form&Inputs/Checkbox1";
 import Checkbox2 from "./tasks/Form&Inputs/Checkbox2";
 import Select from "./tasks/Form&Inputs/Select";
+import Select2 from "./tasks/Form&Inputs/Select2";
+import Select3 from "./tasks/Form&Inputs/Select3";
 import Radio from "./tasks/Form&Inputs/Radio";
+import Textarea2 from "./tasks/Form&Inputs/Textarea2";
+import SelectDisplayDiv from "./tasks/Form&Inputs/SelectDisplayDiv";
+import AddOptionFromInput from "./tasks/Form&Inputs/AddOptionFromInput";
+import MakeInputDisabledWithCheckbox from "./tasks/Form&Inputs/MakeInputDisabledWithCheckbox";
+import DayOfTheWeek from "./tasks/Form&Inputs/DayOfTheWeek";
 
 
 class App extends Component {
@@ -53,6 +60,15 @@ class App extends Component {
                 <Checkbox2/>
                 <Select/>
                 <Radio/>
+
+                <Textarea2/>
+                <Select2/>
+                <Select3/>
+                <SelectDisplayDiv/>
+                <AddOptionFromInput />
+                <MakeInputDisabledWithCheckbox />
+                <DayOfTheWeek/>
+
             </Fragment>
         );
     }

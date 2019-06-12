@@ -3,39 +3,62 @@ import React, {Component, Fragment} from 'react';
 
 class Form extends Component {
     state = {
-        row: [
-            {name: "", surname: "", age: "", gender: ""}
-        ]
+        row: []
     }
 
     getName = React.createRef();
     getSurname = React.createRef();
     getAge = React.createRef();
-    // getGender = React.CreateRef();
+    manRadio = React.createRef();
+    womenRadio = React.createRef();
 
     addRow = (event) => {
         event.preventDefault();
+        const name = this.getName.current.value;
+        const surname = this.getSurname.current.value;
+        const age = this.getAge.current.value;
+        const manRadio = this.manRadio.current;
+        const womenRadio = this.womenRadio.current;
+        let gender = "";
+        if (manRadio.checked) {
+            gender = manRadio.value;
+        } else if (womenRadio.checked) {
+            gender = womenRadio.value;
+        }
+        this.setState({row: [...this.state.row, {name: name, surname: surname, age: age, gender: gender}]})
+    };
 
-        this.setState({
-            name: this.getName.current.value,
-            surname: this.getSurname.current.value,
-            age: this.getAge.current.value
-        })
-    }
+    delRow = (item) => {
+        this.setState(prevState => ({
+                row: prevState.row.filter(row => row !== item)
+            }))
+    };
+
+    editRow = (item) => {
+        console.log(item);
+        this.getName.current.value = item.name;
+        this.getSurname.current.value = item.surname;
+        this.getAge.current.value = item.age;
+        if (item.gender == "Женский") {
+            this.womenRadio.current.checked = true;
+        } else if (item.gender == "Мужской") {
+            this.manRadio.current.checked = true;
+        }
+    };
 
     render() {
-        const createRows =  this.state.row.map((item) =>
-                <tr>
-                    <th> {item.name} </th>
-                    <th> {item.surname} </th>
-                    <th> {item.age} </th>
-                    <th> {item.gender} </th>
-                    <th>
-                        <button id={"edit"}> Редактировать</button>
-                        <button id={"del"}> Удалить</button>
-                    </th>
-                </tr>
-            )
+        const createRows = this.state.row.map(item =>
+            <tr>
+                <th> {item.name} </th>
+                <th> {item.surname} </th>
+                <th> {item.age} </th>
+                <th> {item.gender} </th>
+                <th>
+                    <button onClick={() => this.editRow(item)}> Редактировать</button>
+                    <button onClick={() => this.delRow(item)}> Удалить</button>
+                </th>
+            </tr>
+        )
 
 
         return (
@@ -55,14 +78,14 @@ class Form extends Component {
                         id={"age"}/>
 
                     <input
-                        ref={this.getGender}
+                        ref={this.manRadio}
                         type={"radio"}
                         name={"gender"}
                         value={"Мужской"}
                         id={"man"}/>
                     <label htmlFor={"man"}> Мужской </label>
                     <input
-                        ref={this.getGender}
+                        ref={this.womenRadio}
                         type={"radio"}
                         name={"gender"}
                         value={"Женский"}
@@ -89,7 +112,8 @@ class Form extends Component {
 
                 </table>
             </Fragment>
-        ); }
+        );
     }
+}
 
 export default Form;

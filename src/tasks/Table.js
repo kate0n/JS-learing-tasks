@@ -6,8 +6,7 @@ class Table extends Component {
             {name: 'Коля', age: 30},
             {name: 'Вася', age: 40},
             {name: 'Петя', age: 50},
-        ],
-        count: 0
+        ]
     }
 
     getName2 = React.createRef();
@@ -27,7 +26,6 @@ class Table extends Component {
                 </tr>
             )
         );
-        let count = this.state.count;
         return (
             <div>
                 <table>
