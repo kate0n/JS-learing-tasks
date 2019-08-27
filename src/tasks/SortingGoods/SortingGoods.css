@@ -1,0 +1,22 @@
+ .sortButton {
+    background: purple;
+    color: white;
+    height: 40px;
+    outline: none;
+}
+ .sortButton:hover {
+    background: rgb(172, 75, 172);
+    color: white;
+}
+ .active {
+    background: rgb(170, 3, 128);
+    color: white;
+}
+ /* .sortButton:focus {
+    background: rgb(66, 31, 66);
+    color: white;
+} */
+ .sortButton:disabled {
+    background: rgb(102, 100, 102);
+    color: white;
+}

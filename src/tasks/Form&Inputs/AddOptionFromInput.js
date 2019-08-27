@@ -10,9 +10,6 @@ class AddOptionFromInput extends Component {
     addNewOption = () => {
         let newOption= this.getOptionValue.current.value;
         this.setState({options: [...this.state.options, newOption]});
-        // this.setState({ options: this.state.options.push(newOption)})
-        // не поняла, почему этим не работало, хотя по идее пушится новое value и на выходе массив с новым элементом в конце
-        // но была ошибка this.state.options.map is not a function
         console.log(this.state.options);
     };
 

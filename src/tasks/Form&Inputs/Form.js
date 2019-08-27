@@ -43,7 +43,6 @@ class Form extends Component {
         } else if (item.gender == "Мужской") {
             this.manRadio.current.checked = true;
         }
-        return item;
     };
 
     render() {
